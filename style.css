@@ -526,3 +526,27 @@ footer p {
         transition: none !important;
     }
 }
+
+
+
+.prayer-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.prayer-card.next-prayer {
+    border: 1px solid #d4af67;
+    box-shadow: 0 0 18px rgba(212, 175, 103, 0.3);
+    transform: translateY(-3px);
+}
+
+.next-prayer-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: #f3e4bb;
+    color: #76551a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}

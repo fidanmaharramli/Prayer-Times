@@ -265,6 +265,31 @@ function updateNextPrayer() {
 
     nextPrayerName.textContent = targetPrayer.name;
     nextPrayerTime.textContent = targetPrayer.time;
+    
+document.querySelectorAll(".prayer-card").forEach(function (card) {
+    card.classList.remove("next-prayer");
+
+    const oldLabel = card.querySelector(".next-prayer-label");
+    if (oldLabel) {
+        oldLabel.remove();
+    }
+
+    const prayerName = card.querySelector("h3");
+
+    if (targetDay === selectedDate &&
+        prayerName &&
+        prayerName.textContent === targetPrayer.name) {
+
+        card.classList.add("next-prayer");
+
+        const label = document.createElement("span");
+        label.className = "next-prayer-label";
+        label.textContent = "UP NEXT";
+
+        card.prepend(label);
+    }
+});
+
 
     const dateParts = targetDay.split('-').map(Number);
     const timeParts = targetPrayer.time.split(':').map(Number);
