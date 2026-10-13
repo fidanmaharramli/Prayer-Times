@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Times | Rose Serenity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="celestial-decor" aria-hidden="true">
+            <span class="moon">☾</span>
+            <span class="star star-one">✦</span>
+            <span class="star star-two">✧</span>
+            <span class="star star-three">✦</span>
+        </div>
+
+        <p class="eyebrow">A MOMENT OF PEACE</p>
+        <h1>Prayer Times</h1>
+        <p class="subtitle">A peaceful moment in your day</p>
+        <div class="header-line"></div>
+    </header>
+
+    <main>
+        <section class="date-selection">
+            <div>
+                <label for="month">Select month</label>
+                <input type="month" id="month">
+            </div>
+
+            <div>
+                <label for="day">Select day</label>
+                <input type="date" id="day">
+            </div>
+        </section>
+
+        <section class="next-prayer-section" aria-live="polite">
+            <p class="section-label">YOUR NEXT MOMENT OF PEACE</p>
+            <div class="next-prayer-card">
+                <div class="next-prayer-icon" aria-hidden="true">☾</div>
+
+                <div class="next-prayer-info">
+                    <p class="next-prayer-caption">UP NEXT</p>
+                    <h2 id="nextPrayerName">Loading...</h2>
+                    <p id="nextPrayerTime">--:--</p>
+                </div>
+
+                <div class="countdown-container">
+                    <p class="next-prayer-caption">TIME REMAINING</p>
+                    <p id="prayerCountdown">--:--:--</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="view-controls">
+            <button id="dailyBtn" class="active" type="button">
+                Daily View
+            </button>
+            <button id="monthlyBtn" type="button">
+                Monthly View
+            </button>
+        </section>
+
+        <p id="loading" hidden>Loading prayer times...</p>
+        <p id="error" role="alert"></p>
+
+        <section id="dailyView">
+            <div class="section-heading">
+                <p class="section-label">YOUR DAILY GUIDE</p>
+                <h2>Daily Prayer Times</h2>
+                <p class="section-description">
+                    Moments to pause, reflect and reconnect.
+                </p>
+            </div>
+
+            <div id="prayerTimes"></div>
+        </section>
+
+        <section id="monthlyView" hidden>
+            <div class="section-heading">
+                <p class="section-label">YOUR MONTHLY GUIDE</p>
+                <h2>Monthly Prayer Times</h2>
+                <p class="section-description">
+                    Your prayer schedule, day by day.
+                </p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Fajr</th>
+                            <th>Sunrise</th>
+                            <th>Dhuhr</th>
+                            <th>Asr</th>
+                            <th>Maghrib</th>
+                            <th>Isha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prayerTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-line"></div>
+            <p>Find peace in every moment.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

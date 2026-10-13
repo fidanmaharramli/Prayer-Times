@@ -1,0 +1,528 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+    --cream: #FBF7F3;
+    --white: #FFFCFA;
+    --rose: #B77C8D;
+    --rose-light: #F1DFE3;
+    --rose-dark: #805362;
+    --gold: #B69A68;
+    --text: #44353B;
+    --muted: #95858A;
+    --border: #EDE1DF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 55px 20px 43px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.celestial-decor {
+    position: relative;
+    width: 170px;
+    height: 55px;
+    margin: 0 auto 12px;
+    color: var(--gold);
+}
+
+.moon {
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 65px;
+    line-height: 1;
+    color: var(--rose);
+    animation: moonGlow 3s ease-in-out infinite;
+}
+
+.star {
+    position: absolute;
+    animation: twinkle 2.5s ease-in-out infinite;
+}
+
+.star-one {
+    top: 4px;
+    left: 22px;
+    font-size: 17px;
+}
+
+.star-two {
+    top: 26px;
+    right: 20px;
+    font-size: 22px;
+    animation-delay: 0.8s;
+}
+
+.star-three {
+    top: 0;
+    right: 35px;
+    font-size: 11px;
+    animation-delay: 1.3s;
+}
+
+.eyebrow,
+.section-label {
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.eyebrow {
+    margin: 0 0 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    color: var(--rose-dark);
+}
+
+.subtitle {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.header-line,
+.footer-line {
+    width: 48px;
+    height: 1px;
+    margin: 24px auto 0;
+    background: var(--gold);
+}
+
+main {
+    width: min(1050px, 100%);
+    margin: 0 auto;
+    padding: 42px 24px 30px;
+}
+
+.date-selection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.date-selection div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+input {
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px var(--rose-light);
+}
+
+.next-prayer-section {
+    margin-bottom: 38px;
+}
+
+.next-prayer-section > .section-label {
+    margin: 0 0 13px;
+    text-align: center;
+}
+
+.next-prayer-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 28px 32px;
+    overflow: hidden;
+    background: linear-gradient(115deg, #F3E3E6, #FFFCFA 75%);
+    border: 1px solid #E8D4D9;
+    border-radius: 18px;
+}
+
+.next-prayer-card::after {
+    content: "✧";
+    position: absolute;
+    right: 43%;
+    top: -22px;
+    color: rgba(182, 154, 104, 0.25);
+    font-size: 100px;
+    pointer-events: none;
+}
+
+.next-prayer-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 66px;
+    height: 66px;
+    border: 1px solid rgba(182, 154, 104, 0.5);
+    border-radius: 50%;
+    background: rgba(255, 252, 250, 0.7);
+    color: var(--rose-dark);
+    font-size: 42px;
+}
+
+.next-prayer-info {
+    flex: 1;
+}
+
+.next-prayer-caption {
+    margin: 0 0 8px;
+    color: var(--muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.next-prayer-info h2 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--rose-dark);
+}
+
+#nextPrayerTime {
+    margin: 7px 0 0;
+    color: var(--rose);
+    font-size: 1rem;
+}
+
+.countdown-container {
+    position: relative;
+    z-index: 1;
+    text-align: right;
+}
+
+#prayerCountdown {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--rose-dark);
+    font-variant-numeric: tabular-nums;
+}
+
+.view-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 38px;
+}
+
+.view-controls button {
+    padding: 11px 24px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--rose-dark);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.view-controls button:hover {
+    border-color: var(--rose);
+}
+
+.view-controls button.active {
+    background: var(--rose-dark);
+    border-color: var(--rose-dark);
+    color: white;
+}
+
+#loading {
+    padding: 14px;
+    text-align: center;
+    color: var(--rose);
+    font-size: 0.95rem;
+}
+
+#error {
+    margin: 16px 0;
+    padding: 12px;
+    border-radius: 8px;
+    background: #F9E9E8;
+    color: #A23B4A;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.section-label {
+    margin: 0 0 10px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 500;
+    color: var(--rose-dark);
+}
+
+.section-description {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+#prayerTimes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 45px;
+}
+
+.prayer-card {
+    position: relative;
+    padding: 28px 16px;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: appear 0.45s ease both;
+}
+
+.prayer-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 35%;
+    right: 35%;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.8;
+}
+
+.prayer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(128, 83, 98, 0.08);
+}
+
+.prayer-card h3 {
+    margin: 0 0 13px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.prayer-card p {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--rose-dark);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 45px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--white);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+}
+
+th {
+    background: var(--rose-light);
+    color: var(--rose-dark);
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background: #FDF8F7;
+}
+
+tbody tr:hover {
+    background: #F5E8E9;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+footer {
+    padding: 10px 0 0;
+    text-align: center;
+}
+
+.footer-line {
+    margin: 0 auto 15px;
+    width: 36px;
+}
+
+footer p {
+    color: var(--muted);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes moonGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px rgba(183, 124, 141, 0.1));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 8px rgba(183, 124, 141, 0.35));
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 42px 16px 32px;
+    }
+
+    main {
+        padding: 28px 16px;
+    }
+
+    .date-selection {
+        justify-content: stretch;
+    }
+
+    .date-selection div {
+        flex: 1;
+        min-width: 140px;
+    }
+
+    .next-prayer-card {
+        flex-wrap: wrap;
+        padding: 23px 20px;
+        gap: 16px;
+    }
+
+    .next-prayer-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 34px;
+    }
+
+    .next-prayer-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .countdown-container {
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid var(--border);
+        text-align: left;
+    }
+
+    .view-controls button {
+        flex: 1;
+        padding: 11px 12px;
+    }
+
+    #prayerTimes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .prayer-card {
+        padding: 23px 10px;
+    }
+
+    .prayer-card p {
+        font-size: 1.7rem;
+    }
+
+    th,
+    td {
+        padding: 12px 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
